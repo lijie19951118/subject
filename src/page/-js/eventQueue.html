@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		function eventArray(name) {
+			const eventArr = [];
+			eventArr.push(()=>{
+				console.log(`play ${name}`)
+				// console.log(this)
+			})
+
+			async function play() {
+				for(const event of eventArr) {
+					await event()
+				}
+			}
+
+			function doSome(name) {
+				eventArr.push(()=>{
+					// console.log(this)
+					console.log(`start ${name}`)
+				})
+
+				return this
+			}
+
+			function wait(s) {
+				eventArr.push(()=> new Promise(resolve => {
+						setTimeout(resolve, s * 1000)
+					}))
+				return this
+			}
+
+			function firstWait(s) {
+				eventArr.unshift(()=> new Promise(resolve => {
+						setTimeout(resolve, s * 1000)
+					}))
+				return this
+			}
+
+			return {
+				play,
+				do: doSome,
+				wait,
+				firstWait
+			}
+		}
+
+		eventArray('a1').play();
+		// play a
+
+		eventArray('a2').do('b3').play();
+		//play a    
+		//start b
+
+		eventArray('a3').wait(3).do('b3').play();
+		// play a
+		// 等待3秒
+		// start b
+
+		eventArray('a4').firstWait(3).do('b4').play();
+		// 等待3秒
+		// play a
+		// start b
+	</script>
+</body>
+</html>

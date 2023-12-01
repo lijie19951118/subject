@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		const cookie = "_octo=GH1.2.2591.47507; _ga=GA1.1.62208.4087; has_recent_activity=1";
+
+		// 字符串转成对象
+		const getCookieObject = (str) => {
+			const obj = str.split(';').reduce((item, value) => {
+				const arr = value.trim().split('=');
+				return {
+					...item,
+					[arr[0]]: arr[1]
+				}
+			}, {});
+			return obj;
+		}
+
+		// 设置属性报错
+		const readOnlyView = target => {
+			const NOPE = () => {
+				throw new Error("Uncaught Error: Can't modify read-only view");
+			}
+			return new Proxy(target, {
+				set: NOPE,
+				defineProperty: NOPE,
+				deleteProperty: NOPE,
+				preventExtensions: NOPE,
+				setPrototypeOf: NOPE
+			})
+		}
+
+		// 隐藏带_开头得属性
+		const hide = target => {
+			return new Proxy(target, {
+				has: (obj, key, proxy) => {
+					if (key.startsWith('_')) {
+						return false;
+					}
+					return key in obj;
+				}
+			});
+		}
+
+		// 获取不存在得属性提示
+		const withZeroValue = (target, message) => {
+			return new Proxy(target, {
+				get: (obj, key, proxy) => {
+					if(key in obj) {
+						console.log(Reflect.get(obj, key, proxy))
+						return Reflect.get(obj, key, proxy);
+					}
+					console.log(message);
+				}
+			})
+		}
+
+		let docCookies = withZeroValue(
+				hide(readOnlyView(getCookieObject(cookie))),
+				"Cookie not found"
+		);
+		
+		// console.log(docCookies)
+
+		docCookies.has_recent_activity; // "1"
+		docCookies.nonExistentCookie; // "Cookie not found"
+		docCookies._ga; // "Cookie not found"
+		docCookies.newCookie = "1"; // Uncaught Error: Can't modify read-only view
+	</script>
+</body>
+</html>

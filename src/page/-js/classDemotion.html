@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		class Cat {
+			constructor(name) {
+				this.name = name
+			}
+			get color() {
+				return '红色'
+			}
+			set color(value) {
+				console.log(`你设置了颜色为${value}`)
+			}
+			sayName() {
+				console.log(`我的名字是${this.name}`)
+			}
+		}
+
+		const miao =  new Cat('miao');
+		// console.log(miao)
+		// miao.sayName();
+		// console.log(miao.color);
+		// miao.color = '白色';
+
+		/**
+		 * class降级============================ 
+		 * 1，基本功能	30
+		 * 2，暂时性死区	40
+		 * 3，需要使用new调用	50
+		 * 4，访问器get set	60
+		 * 5，访问器不可枚举	70
+		 * 6，原型上的函数不可枚举	80
+		 * 7，原型上的函数不能使用new调用	90
+		*/
+
+		var Cat2 = (function(){
+			function Cat2(name) {
+				if(Object.getPrototypeOf(this) !== Cat2.prototype) {
+					throw new Error('请使用new调用');
+				}
+				this.name = name;
+
+				// 实例中的访问器
+				Object.defineProperty(this, 'color', {
+					get() {
+						return '红色'
+					},
+					set(value) {
+						console.log(`你设置了颜色====${value}`)
+					},
+					enumerable: false
+				})
+			}
+			return Cat2;
+		})()
+
+		// 原型中的访问器
+		Object.defineProperty(Cat2.prototype, 'color', {
+			get() {
+				return '红色'
+			},
+			set(value) {
+				console.log(`你设置了颜色====${value}`)
+			},
+			enumerable: false
+		})
+
+		// 原型上的方法
+		Object.defineProperty(Cat2.prototype, 'sayName', {
+			value: function () {
+				// 判断函数不能用new 调通
+				console.log("🚀 ~ file: classDemotion.html:77 ~ 通:", this)
+				if (Object.getPrototypeOf(this) === Cat2.prototype.sayName.prototype) {
+					throw new Error('不能使用new调用')
+				}
+				console.log(`我的名字是${this.name}`)
+			},
+			enumerable: false
+		})
+
+		const miao2 = new Cat2('miao2');
+		console.log(miao2)
+		miao2.sayName();
+		// new miao2.sayName();
+		console.log(miao2.color);
+		miao2.color = '绿色';
+
+
+		// 方法不可枚举
+		// console.log(Object.keys(Cat2.prototype))
+		// Cat2();
+	</script>
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		.box {
+			position: relative;
+			width: 100vw;
+			height: 100vh;
+			/* background: #ccc; */
+		}
+		/* .box img {
+			width: 100vmin;
+			height: 100vmin;
+		} */
+		.box .item1 {
+			position: absolute;
+			left: 100px;
+			top: 200px;
+			width: 200px;
+			height: 200px;
+			background: #ccc;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<!-- <div class="item1"></div> -->
+		<!-- <img src="https://wsnbh-img.hzanchu.com/test/340444143833341952.jpeg" alt=""> -->
+	</div>
+
+	<script>
+		// const item1dom = document.querySelector('.item1');
+		// item1dom.addEventListener('mousedown', mousedownMethods);
+		// item1dom.addEventListener('mouseup', mouseupMethods);
+		// item1dom.addEventListener('mouseleave', mouseleaveMethods);
+		
+		// let offsetX = 0;
+		// let offsetY = 0;
+		// // 按下
+		// function mousedownMethods(e) {
+		// 	console.log('按下')
+		// 	console.log(e)
+		// 	offsetX = e.offsetX;
+		// 	offsetY = e.offsetY;
+		// 	item1dom.addEventListener('mousemove', mousemoveMethods);
+		// }
+		// // 抬起
+		// function mouseupMethods(e) {
+		// 	item1dom.removeEventListener('mousemove', mousemoveMethods);
+		// }
+		// // 移出
+		// function mouseleaveMethods() {
+		// 	console.log('移出')
+		// 	item1dom.removeEventListener('mousemove', mousemoveMethods);
+		// }
+		// // 移动
+		// function mousemoveMethods(e) {
+		// 	console.log(e);
+		// 	const left = e.pageX - offsetX;
+		// 	const top = e.pageY - offsetY;
+		// 	item1dom.style.left = left + 'px';
+		// 	item1dom.style.top = top + 'px';
+		// }
+		class Box {
+			offsetX = 0;
+			offsetY = 0;
+			dom = null;
+			box = document.querySelector('.box');
+			constructor(x, y) {
+				this.x = x;
+				this.y = y;
+				this.dom = document.createElement('div');
+				const style = {
+					width: '200px',
+					height: '200px',
+					position: 'absolute',
+					background: '#ccc',
+					left: x + 'px',
+					top: y + 'px',
+				}
+				for(const key in style) {
+					this.dom.style[key] = style[key];
+				}
+				this.box.appendChild(this.dom);
+				this.dom.addEventListener('mousedown', this.mousedownMethods.bind(this));
+				this.dom.addEventListener('mouseup', this.mouseupMethods.bind(this));
+				this.dom.addEventListener('mouseleave', this.mouseleaveMethods.bind(this));
+
+				this.mousemoveMethodsBind = this.mousemoveMethods.bind(this);
+			}
+
+			mousedownMethods(e) {
+				console.log('按下')
+				this.offsetX = e.offsetX;
+				this.offsetY = e.offsetY;
+				this.dom.addEventListener('mousemove', this.mousemoveMethodsBind);
+			}
+			mouseupMethods() {
+				console.log('抬起')
+				this.dom.removeEventListener('mousemove', this.mousemoveMethodsBind);
+			}
+			mouseleaveMethods() {
+				console.log('移出')
+				this.dom.removeEventListener('mousemove', this.mousemoveMethodsBind);
+			}
+			mousemoveMethods(e) {
+
+				const left = e.pageX - this.offsetX;
+				const top = e.pageY - this.offsetY;
+				this.setStyle(left, top)
+			}
+			setStyle(x,y) {
+				this.dom.style.left = x + 'px';
+				this.dom.style.top = y + 'px';
+			}
+		}
+		const newbox = new Box(0,0);
+		const newbox2 = new Box(110,110);
+		console.log(newbox)
+	</script>
+</body>
+</html>

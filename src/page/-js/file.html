@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<input type="file" id="input" />
+	<img id="img" src="" alt="">
+	<div>
+		<button id="down">下载</button>
+	</div>
+	<script>
+		const img = document.querySelector('#img');
+		document.querySelector('#input').onchange = function(e) {
+			const file = e.target.files[0];
+			console.log(file)
+			const fileType = Object.prototype.toString.call(file);
+			console.log(fileType);
+			const url = URL.createObjectURL(file);
+			img.src = url;
+			//----------------
+			const read = new FileReader();
+			read.onload = (e) => {
+				console.log(e.target.result)
+			}
+			read.readAsDataURL(file); // base64
+			// read.readAsArrayBuffer(file); // 转换为 ArrayBuffer，
+			// read.readAsText(file, 'utf-8'); // 转换为字符串（TextDecoder 的一个替代方案）
+		}
+
+		// -----------------------下载json文件
+		const btn = document.querySelector('#down');
+		btn.addEventListener('click', playClick);
+		function playClick(e) {
+			const jsonStr = {
+				aaa: 111,
+				bbb: 222,
+				ccc: [1,2,3],
+				ddd: {
+					a:1,
+					b:2
+				}
+			}
+			const blob = new Blob([JSON.stringify(jsonStr)]);
+			download(blob);
+		}
+		function download(bolb) {
+			const a = document.createElement('a');
+			const url = URL.createObjectURL(bolb);
+			a.href = url;
+			a.download = 'myfile.text';
+			a.click();
+		}
+	</script>
+</body>
+</html>
