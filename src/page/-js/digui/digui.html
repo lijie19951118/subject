@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		let arr = [1,2,3,4]; // 求和
+		let num = 0;
+		for(let i = 0; i < arr.length; i++ ) {
+			num += arr[i]
+		}
+		console.log(num)
+
+		function add(a, i = 0) {
+			if (i === a.length) return 0;
+			return a[i] + add(a, i+1);
+		}
+		console.log(add(arr))
+
+		/**
+		 * for(初始代码；条件代码；循环代码) {
+		 * 	循环体
+		 * }
+		 * 
+		 * function m() {
+		 * 		初始代码
+		 * 		function _m() {
+		 * 			if (!条件代码) {
+		 * 				return
+		 * 			}
+		 * 			// 循环体
+		 * 			循环代码
+		 * 			_m();
+		 * 		}
+		 * 		_m();
+		 * }
+		 * 
+		 * **/
+
+		 function m() {
+				let num = 0;
+				let i = 0;
+				function _m() {
+					if (i >= arr.length) {
+						return
+					};
+					num += arr[i]
+					i++
+					_m();
+				}
+				_m();
+				console.log(num)
+		 }
+		 m()
+	</script>
+</body>
+</html>
