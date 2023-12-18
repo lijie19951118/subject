@@ -48,6 +48,7 @@
 		<div><router-link to="/css/selector">样式选择器</router-link></div>	
 		<div><router-link to="/css/3d">3d</router-link></div>	
 		<div><router-link to="/css/flexMargin">flex + margin</router-link></div>	
+		<div><router-link to="/css/floatSurround">文字环绕（float）</router-link></div>	
 		<div>工程化</div>
 		<div><router-link to="/engineering/picture">打包和图片路径问题</router-link></div>
 		<div>面向对象</div>
