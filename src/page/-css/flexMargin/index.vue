@@ -9,15 +9,15 @@
 		</div>
 		右1靠右
 		<div class="item">
-			<div class="box"></div>
 			<div class="box box2"></div>
+			<div class="box"></div>
 		</div>
 		右2居中
 		<div class="item">
 			<div class="box"></div>
 			<div class="box"></div>
+			<div class="box "></div>
 			<div class="box box3"></div>
-			<div class="box"></div>
 		</div>
 		均匀分布
 		<div class="item item4">
@@ -42,17 +42,21 @@
 	width: 800px;
 	margin: 30px;
 	border: 5px solid #ccc;
-	// height: 50px;
 	display: flex;
 	flex-wrap: wrap;
+
+	// justify-content: space-between;
+	// align-items: center;
+	
 	.box1 {
 		margin: auto;
 	}
 	.box2 {
-		margin-left: auto;
+		margin-right: auto;
 	}
 	.box3 {
-		margin: 0 auto;
+// margin: auto;
+margin-left: auto;
 	}
 	.box {
 		width: 50px;
@@ -82,10 +86,10 @@
 }
 .item4 {
 	.box4 {
-		--num: 6;
-		--gap: calc((100% - 50px * var(--num)) / var(--num) / 2);
-		margin: 0 var(--gap) 10px;
-		
+		// --num: 5;
+		// --gap: calc((100% - 50px * var(--num)) / var(--num) / 2);
+		// margin: 0 var(--gap) 10px;
+		margin: 0 calc((100% - 50px * 5) / 5 / 2) 10px;
 	}
 }
 </style>

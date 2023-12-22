@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		class SuperTask{
+			
+		}
+
+		const superTask = new SuperTask();
+		function addTask(time, name) {
+			superTask.add(()=>{setTimeout(time)}).then(()=>{
+				console.log(name)
+			})
+		}
+		superTask(10000, 1);
+		superTask(5000, 2);
+		superTask(3000, 3);
+		superTask(4000, 4);
+		superTask(5000, 5);
+	</script>
+</body>
+</html>
