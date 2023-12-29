@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		var a = (function(){
+			var obj = {a: 1, b: 2};
+			// Object.setPrototypeOf(obj, null)
+			// var obj = Object.create(null);
+			// obj.a = 1;
+			// obj.b = 2;
+
+			console.log(obj)
+			return {
+				get: function (k) {
+					if (obj.hasOwnProperty(key)) {
+						return obj[k]
+					}
+				}
+			}
+		})()
+
+		Object.defineProperty(Object.prototype, 'abc', {
+			get() {
+				return this
+			}
+		})
+		console.log(a.get('abc'))
+		a.get('abc').a = 11111
+		console.log(a.get('a'))
+	</script>
+</body>
+</html>
