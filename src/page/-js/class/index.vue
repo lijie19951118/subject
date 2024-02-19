@@ -1,4 +1,10 @@
 <script setup>
+/**
+ * 1，实例属性新写法：直接写在class最地层，aaa = 111，不需要写在constructor(){ this.aaa = 111 };中;
+ * 2，静态属性/方法（static）：只能通过类来调用，就是类的属性/方法, （可被子类继承）。例：class Fn{ static a = 1; }; Fn.a // 1
+ * 3，私有属性/方法（#key）：只能在类内部调用，（不被子类继承）。例：class Fn{ #key = 1; *** this.#key *** };
+ */
+
 let getX;
 
 class Soldier {
