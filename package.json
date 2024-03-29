@@ -8,6 +8,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "lijie": "file:./lijie",
     "@styils/vue": "^1.1.6",
     "element-plus": "^2.3.7",
     "openai": "^4.0.0",

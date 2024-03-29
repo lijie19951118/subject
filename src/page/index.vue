@@ -53,6 +53,8 @@
 		<div><router-link to="/engineering/picture">打包和图片路径问题</router-link></div>
 		<div>面向对象</div>
 		<div><router-link to="/objectOriented/redGreenLight">红绿灯</router-link></div>
+		<div>npm本地组件</div>
+		<div><router-link to="/lijie/main">lijie</router-link></div>
 	</div>
 </template>
 
