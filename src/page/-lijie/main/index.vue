@@ -1,11 +1,11 @@
 <template>
 	<div class="">11111111111</div>
-	<BBB />
+	<AAA />
 </template>
 
 <script setup>
 import { ref, getCurrentInstance } from 'vue';
-import BBB from 'lijie';
+import {AAA} from 'lijie';
 
 const { proxy } = getCurrentInstance();
 

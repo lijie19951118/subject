@@ -1,3 +1,5 @@
 import AAA from './src/a.vue';
-
-export default AAA;
+console.log(AAA)
+export {
+	AAA
+};
