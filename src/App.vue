@@ -1,5 +1,5 @@
 <template>
-  <div class="main">
+  <div class="app-main">
     <el-menu
       class="el-menu-vertical"
 			active-text-color="#ffd04b"
@@ -30,7 +30,7 @@
 <script lang="ts" setup>
 import { ref, onMounted, watchEffect } from 'vue';
 import { Document, Menu as IconMenu, Location, Setting } from "@element-plus/icons-vue";
-import { useRouter } from 'vue-router';
+import { useRoute } from 'vue-router';
 import routeList from './router/data.js';
 const handleOpen = (key: string, keyPath: string[]) => {
   console.log(key, keyPath);
@@ -41,27 +41,30 @@ const handleClose = (key: string, keyPath: string[]) => {
 const menuList = routeList;
 
 const activeMenu = ref('');
-const router = useRouter();
+const route = useRoute();
 
 watchEffect(() => {
-	activeMenu.value = router.currentRoute.value.path;
+	activeMenu.value = route.path;
 })
 </script>
 
 <style scoped>
-.main {
+.app-main {
 	position: relative;
 	display: flex;
 	flex-wrap: nowrap;
-	padding-left: 144px;
+	padding-left: 180px;
 }
-.main .el-menu-vertical {
+.app-main .el-menu-vertical {
 	position: fixed;
 	top: 0;
 	left: 0;
 	height: 100vh;
+	width: 180px;
 }
-.main .content {
+.app-main .content {
 		position: relative;
+		width: 100%;
+		filter: saturate();
 	}
 </style>

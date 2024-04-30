@@ -55,4 +55,18 @@ export default [
 			},
 		]
 	},
+	{
+		title: 'NodeJs',
+		path: '/nodejs',
+		children: [
+			{
+				title: '验证码登录',
+				path: '/nodejs/loginCaptcha'
+			},
+			{
+				title: '文件上传/下载',
+				path: '/nodejs/upload'
+			},
+		]
+	},
 ]
