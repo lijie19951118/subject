@@ -1,6 +1,6 @@
 <script setup>
 import {ref, onMounted} from 'vue';
-import {Flip} from '@/page/-animation/FLIP/flip.js'
+import {Flip} from '@/page/animation/FLIP/flip.js'
 
 let sourceNode;
 let flip;

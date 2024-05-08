@@ -1,5 +1,5 @@
 <script setup>
-import { debounce } from '@/page/-js/debounce/debounce.js';
+import { debounce } from '@/page/js/debounce/debounce.js';
 import { onMounted, onUnmounted, ref } from 'vue';
 
 const elementMap = new Map();
