@@ -60,7 +60,24 @@
 
 <script setup>
 import {ref} from 'vue';
+import request from "@/utils/request";
 const num = ref('')
+
+// 校验登录
+getUser();
+
+function getUser() {
+  request({
+    url: "/users",
+    method: "get",
+    data: {
+    },
+  }).then((res) => {
+    if (res.code !== 0) {
+      return;
+    }
+  });
+}
 </script>
 
 <style scoped lang="scss">

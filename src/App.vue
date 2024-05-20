@@ -1,37 +1,43 @@
 <template>
-  <div class="app-main">
+  <div :class="showMenu && 'app-main'">
     <el-menu
+      v-if="showMenu"
       class="el-menu-vertical"
-			active-text-color="#ffd04b"
-			background-color="#545c64"
-			text-color="#fff"
-			router
-			:default-active="activeMenu"
+      active-text-color="#ffd04b"
+      background-color="#545c64"
+      text-color="#fff"
+      router
+      :default-active="activeMenu"
       @open="handleOpen"
       @close="handleClose"
     >
       <el-sub-menu v-for="item in menuList" :key="item.path" :index="item.path">
         <template #title>
           <el-icon><icon-menu /></el-icon>
-          <span>{{item.title}}</span>
+          <span>{{ item.title }}</span>
         </template>
-				<el-menu-item v-for="child in item.children" :key="child.path" :route="{path: child.path}" :index="child.path">
-					{{child.title}}
-				</el-menu-item>
+        <el-menu-item
+          v-for="child in item.children"
+          :key="child.path"
+          :route="{ path: child.path }"
+          :index="child.path"
+        >
+          {{ child.title }}
+        </el-menu-item>
       </el-sub-menu>
     </el-menu>
 
-		<div class="content">
-			<router-view></router-view>
-		</div>
+    <div class="content">
+      <router-view></router-view>
+    </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { ref, onMounted, watchEffect } from 'vue';
+import { ref, computed, onMounted, watchEffect } from "vue";
 import { Document, Menu as IconMenu, Location, Setting } from "@element-plus/icons-vue";
-import { useRoute } from 'vue-router';
-import routeList from './router/data.js';
+import { useRoute } from "vue-router";
+import routeList from "./router/data.js";
 const handleOpen = (key: string, keyPath: string[]) => {
   console.log(key, keyPath);
 };
@@ -40,31 +46,36 @@ const handleClose = (key: string, keyPath: string[]) => {
 };
 const menuList = routeList;
 
-const activeMenu = ref('');
+const activeMenu = ref("");
+
+const showMenu = computed(() => {
+  return activeMenu.value !== "/user/login";
+});
+
 const route = useRoute();
 
 watchEffect(() => {
-	activeMenu.value = route.path;
-})
+  activeMenu.value = route.path;
+});
 </script>
 
 <style scoped>
 .app-main {
-	position: relative;
-	display: flex;
-	flex-wrap: nowrap;
-	padding-left: 180px;
+  position: relative;
+  display: flex;
+  flex-wrap: nowrap;
+  padding-left: 180px;
 }
 .app-main .el-menu-vertical {
-	position: fixed;
-	top: 0;
-	left: 0;
-	height: 100vh;
-	width: 180px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 180px;
 }
 .app-main .content {
-		position: relative;
-		width: 100%;
-		filter: saturate();
-	}
+  position: relative;
+  width: 100%;
+  filter: saturate();
+}
 </style>
