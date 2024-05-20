@@ -1,11 +1,11 @@
 // 进行axios二次封装：使用请求与响应拦截器
 import axios from "axios";
 import { ElMessage } from "element-plus";
-import { router } from '@/router'
+import { router } from "@/router";
 //1. create创建实例（基础路径，超时时间）
 let request = axios.create({
   // 基础路径
-  baseURL: "http://127.0.0.1:8000", //import.meta.env.VITE_APP_BASE_API,
+  baseURL: "http://www.fulili.cn:8000", //"http://127.0.0.1:8000", //import.meta.env.VITE_APP_BASE_API,
   timeout: 5000,
 });
 
@@ -29,7 +29,7 @@ request.interceptors.response.use(
         type: "error",
         message: "token过期，请重新登录",
       });
-			router.push('/user/login')
+      router.push("/user/login");
       return Promise.reject("token过期，请重新登录");
     }
     if (data.code !== 0) {

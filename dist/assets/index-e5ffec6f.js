@@ -1,1 +1,0 @@
-import{_ as s,r as _,o as t,c as o,p as c,h as a,e as d}from"./index-1a849f41.js";const n=e=>(c("data-v-e714f72d"),e=e(),a(),e),p={class:"main"},i=n(()=>d("div",{class:"item"},"球",-1)),r=[i],f={__name:"index",setup(e){return _(0),(l,h)=>(t(),o("div",p,r))}},u=s(f,[["__scopeId","data-v-e714f72d"]]);export{u as default};

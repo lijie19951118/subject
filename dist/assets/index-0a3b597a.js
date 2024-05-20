@@ -1,0 +1,1 @@
+import{_ as c,o,c as _,p as t,h as d,e as s}from"./index-bd82a3f5.js";const a={},n=e=>(t("data-v-567795d2"),e=e(),d(),e),i={class:"min"},p=n(()=>s("div",{class:"box"},[s("div",{class:"item"},"123")],-1)),r=[p];function l(e,h){return o(),_("div",i,r)}const x=c(a,[["render",l],["__scopeId","data-v-567795d2"]]);export{x as default};
