@@ -1,1 +1,0 @@
-import{_ as e}from"./index-64dbbdc2.js";import{o as _,c}from"./myVue-f9a41b77.js";const o={},t={class:"ball"};function s(n,a){return _(),c("div",t)}const f=e(o,[["render",s],["__scopeId","data-v-452f188c"]]);export{f as default};

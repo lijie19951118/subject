@@ -1,1 +1,0 @@
-import{B as a,o as e,c as s,m as r,u as _,F as l,a as u}from"./myVue-f9a41b77.js";const d="hello world",m={class:""},o={__name:"a",setup(t){return console.log(d,9999),a(),(c,n)=>(e(),s("div",m,"aaaaaaaaaaaaaaaaa"))}};console.log(o);const p=u("div",{class:""},"11111111111",-1),f={__name:"index",setup(t){return a(),(c,n)=>(e(),s(l,null,[p,r(_(o))],64))}};export{f as default};

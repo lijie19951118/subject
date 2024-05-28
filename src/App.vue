@@ -3,9 +3,6 @@
     <el-menu
       v-if="showMenu"
       class="el-menu-vertical"
-      active-text-color="#ffd04b"
-      background-color="#545c64"
-      text-color="#fff"
       router
       :default-active="activeMenu"
       @open="handleOpen"
@@ -27,6 +24,8 @@
       </el-sub-menu>
     </el-menu>
 
+    <Header v-if="showMenu" />
+
     <div class="content">
       <router-view></router-view>
     </div>
@@ -34,36 +33,36 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, computed, onMounted, watchEffect } from "vue";
+import { ref, computed, onMounted, watchEffect, watch } from "vue";
 import { Document, Menu as IconMenu, Location, Setting } from "@element-plus/icons-vue";
-import { useRoute } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
 import routeList from "./router/data.js";
+import Header from "@/components/Header/index.vue";
+
 const handleOpen = (key: string, keyPath: string[]) => {
-  console.log(key, keyPath);
+  // console.log(key, keyPath);
 };
 const handleClose = (key: string, keyPath: string[]) => {
-  console.log(key, keyPath);
+  // console.log(key, keyPath);
 };
 const menuList = routeList;
 
 const activeMenu = ref("");
-
-const showMenu = computed(() => {
-  return activeMenu.value !== "/user/login";
-});
+const showMenu = ref(true);
 
 const route = useRoute();
+const router = useRouter();
 
 watchEffect(() => {
+  console.log("监听路由-----", route.path);
   activeMenu.value = route.path;
+  showMenu.value = route.path !== "/user/login";
 });
 </script>
 
 <style scoped>
 .app-main {
   position: relative;
-  display: flex;
-  flex-wrap: nowrap;
   padding-left: 180px;
 }
 .app-main .el-menu-vertical {

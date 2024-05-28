@@ -1,7 +1,17 @@
 export default [
 	{
+		title: '首页',
+		path: '/',
+		children: [
+			{
+				title: '首页',
+				path: '/'
+			},
+		]
+	},
+	{
 		title: 'JS',
-		path:'/js',
+		path: '/js',
 		children: [
 			{
 				title: '操作符：+',
