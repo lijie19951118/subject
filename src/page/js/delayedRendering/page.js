@@ -1,4 +1,4 @@
 export default {
-	title: '',
+	title: '大数据延迟渲染',
 	menuOrder: 1
 }

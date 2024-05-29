@@ -6,7 +6,10 @@ import { router } from "@/router";
 let request = axios.create({
   // 基础路径
   baseURL: "http://www.fulili.cn:8000", //"http://127.0.0.1:8000", //import.meta.env.VITE_APP_BASE_API,
+  // baseURL: "http://localhost:8000",
   timeout: 5000,
+  // 允许cookie跨域
+  withCredentials: true,
 });
 
 //2. 实例添加请求与响应拦截器
@@ -27,17 +30,17 @@ request.interceptors.response.use(
       // 去登录页面
       ElMessage({
         type: "error",
-        message: "token过期，请重新登录",
+        message: "登陆过期，请重新登录",
       });
       router.push("/user/login");
-      return Promise.reject("token过期，请重新登录");
+      return Promise.reject("登陆过期，请重新登录");
     }
-    if (data.code !== 0) {
+    if (data.code !== 0 && data.message) {
       ElMessage({
         type: "error",
         message: data.message,
       });
-      return Promise.reject();
+      return response.data;
     }
     // 简化数据
     return response.data;

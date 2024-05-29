@@ -6,7 +6,7 @@ const pages = import.meta.glob('../../src/**/page.js', {
 });
 const indexPages = import.meta.glob('../../src/**/index.vue');
 
-const routes = Object.entries(pages).map(([path, meta]) => {
+export const routes = Object.entries(pages).map(([path, meta]) => {
 	const pageJSPath = path;
 	path = path.replace('../page', '').replace('/page.js', '') || '/';
 	const name = path.split('/').filter(Boolean).join('-') || 'index';

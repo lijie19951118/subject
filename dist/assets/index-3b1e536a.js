@@ -1,1 +1,0 @@
-import{_ as a}from"./index-e118b9b0.js";import{o as e,c as s,F as n,a8 as _,a as c}from"./myVue-6b61aabf.js";const d={},o={class:"main"};function r(i,l){return e(),s("div",o,[(e(),s(n,null,_(5e3,(m,t)=>c("span",{key:t},"哈")),64))])}const u=a(d,[["render",r],["__scopeId","data-v-87609ddd"]]);export{u as default};

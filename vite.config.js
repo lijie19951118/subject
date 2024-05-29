@@ -3,21 +3,23 @@ import { fileURLToPath, URL } from 'node:url'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
+// Element-plus自动导入模块插件
+import AutoImport from 'unplugin-auto-import/vite'
+import Components from 'unplugin-vue-components/vite'
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-	server: {
-		// proxy: {
-		// 	'/api': {
-		// 		target: 'http://localhost:5173/',
-		// 		changeOrigin: true,
-		// 		rewrite: path => path.replace(/^\/api/, '')
-		// 	}
-		// }
-	},
 	plugins: [
 		vue(),
 		vueJsx(),
+		// Element-plus自动导入模块插件
+		AutoImport({
+			resolvers: [ElementPlusResolver()],
+		}),
+		Components({
+			resolvers: [ElementPlusResolver()],
+		}),
 	],
 	resolve: {
 		extensions: ['.js', '.jsx', '.ts', '.tsx'],
@@ -26,6 +28,7 @@ export default defineConfig({
 		},
 	},
 	build: {
+		// 手动分块打包
 		rollupOptions: {
 			// https://rollupjs.org/guide/en/#outputmanualchunks
 			output: {

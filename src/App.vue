@@ -5,12 +5,17 @@
       class="el-menu-vertical"
       router
       :default-active="activeMenu"
+      active-text-color="#ffffff"
+      unique-opened
       @open="handleOpen"
       @close="handleClose"
     >
+      <div class="login">Li-Admin</div>
       <el-sub-menu v-for="item in menuList" :key="item.path" :index="item.path">
         <template #title>
-          <el-icon><icon-menu /></el-icon>
+          <el-icon>
+            <component :is="item.icon" />
+          </el-icon>
           <span>{{ item.title }}</span>
         </template>
         <el-menu-item
@@ -34,7 +39,6 @@
 
 <script lang="ts" setup>
 import { ref, computed, onMounted, watchEffect, watch } from "vue";
-import { Document, Menu as IconMenu, Location, Setting } from "@element-plus/icons-vue";
 import { useRoute, useRouter } from "vue-router";
 import routeList from "./router/data.js";
 import Header from "@/components/Header/index.vue";
@@ -71,10 +75,30 @@ watchEffect(() => {
   left: 0;
   height: 100vh;
   width: 180px;
+  overflow: auto;
+}
+.app-main .el-menu-vertical .login {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 45px;
+  text-align: center;
 }
 .app-main .content {
   position: relative;
   width: 100%;
   filter: saturate();
+}
+/* .app-main .el-menu-vertical :deep(.el-menu) .is-active::before {
+  background: #409eff;
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 154px;
+  height: 42px;
+  border-radius: 3px;
+} */
+.app-main .el-menu-vertical :deep(.el-menu) .is-active {
+  background: #409eff;
 }
 </style>
