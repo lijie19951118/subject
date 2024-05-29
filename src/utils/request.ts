@@ -5,8 +5,7 @@ import { router } from "@/router";
 //1. create创建实例（基础路径，超时时间）
 let request = axios.create({
   // 基础路径
-  baseURL: "http://www.fulili.cn:8000", //"http://127.0.0.1:8000", //import.meta.env.VITE_APP_BASE_API,
-  // baseURL: "http://localhost:8000",
+  baseURL: import.meta.env.VITE_SERVE,
   timeout: 5000,
   // 允许cookie跨域
   withCredentials: true,
