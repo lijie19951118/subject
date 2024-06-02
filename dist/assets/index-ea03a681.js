@@ -1,0 +1,1 @@
+import{_ as o}from"./index-3248ed05.js";import{l as t,m as _,av as c,aw as a,p as s}from"./myVue-ccd9a49f.js";const d={},n=e=>(c("data-v-567795d2"),e=e(),a(),e),i={class:"min"},p=n(()=>s("div",{class:"box"},[s("div",{class:"item"},"123")],-1)),r=[p];function l(e,m){return t(),_("div",i,r)}const x=o(d,[["render",l],["__scopeId","data-v-567795d2"]]);export{x as default};
