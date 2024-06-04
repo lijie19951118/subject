@@ -101,6 +101,7 @@ const getUser = () => {
       return;
     }
     user.value = res.result;
+    localStorage.setItem("userName", res.result.user_name);
   });
 };
 

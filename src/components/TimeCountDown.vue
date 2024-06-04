@@ -30,7 +30,7 @@ const seconds = computed(() => remainingTime.value % 60);
 const startCountdown = () => {
   clearInterval(intervalId.value);
   intervalId.value = setInterval(() => {
-    console.log("计时器++++++");
+    // console.log("计时器++++++");
     if (remainingTime.value > 0) {
       remainingTime.value -= 1;
     } else {

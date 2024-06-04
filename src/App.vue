@@ -58,7 +58,7 @@ const route = useRoute();
 const router = useRouter();
 
 watchEffect(() => {
-  console.log("监听路由-----", route.path);
+  // console.log("监听路由-----", route.path);
   activeMenu.value = route.path;
   showMenu.value = route.path !== "/user/login";
 });

@@ -53,6 +53,7 @@
               placeholder="验证码"
               :prefix-icon="CreditCard"
               size="large"
+              @keydown="onkeydown"
             />
             <div v-html="codeImg" @click="getLoginCode"></div>
           </div>
@@ -101,7 +102,7 @@
 
 <script setup>
 import { Lock, UserFilled, CreditCard } from "@element-plus/icons-vue";
-import { ref, reactive, getCurrentInstance } from "vue";
+import { ref, reactive, onMounted, onUnmounted } from "vue";
 import request from "@/utils/request";
 import { useRouter, useRoute } from "vue-router";
 
@@ -120,8 +121,6 @@ const validateUsername = (rule, value, callback) => {
 const route = useRoute();
 const router = useRouter();
 
-const { proxy } = getCurrentInstance();
-
 const codeImg = ref("");
 const loginType = ref("login");
 const ruleFormRef = ref();
@@ -137,8 +136,9 @@ const change = (type) => {
 };
 
 const getLoginCode = async () => {
+  ruleForm.code = "";
   const { result } = await request({
-    url: "/users/login/code",
+    url: `/users/login/code?time=${new Date().getTime()}`,
     method: "get",
   });
   codeImg.value = result;
@@ -161,7 +161,7 @@ const login = () => {
     if (code === 0) {
       localStorage.setItem("token", result.token);
       ElMessage.success("登录成功！");
-      router.push("/");
+      router.push("/recreation/chat");
     } else {
       getLoginCode();
     }
@@ -192,10 +192,21 @@ const register = () => {
     ElMessage.success("注册成功！");
     change("login");
     ruleForm.username = result.user_name;
+    getLoginCode();
   });
 };
 
 getLoginCode();
+
+function onkeydown(event) {
+  if (event.keyCode === 13) {
+    if (loginType.value === "login") {
+      login();
+    } else {
+      register();
+    }
+  }
+}
 </script>
 
 <style scoped lang="scss">

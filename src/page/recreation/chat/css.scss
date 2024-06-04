@@ -1,0 +1,132 @@
+.chat {
+  display: flex;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  margin: 50px;
+  max-width: 1200px;
+  height: calc(100vh - 200px);
+  box-shadow: 0px 0px 20px #ccc;
+  overflow: hidden;
+}
+
+.room-list {
+  width: 200px;
+  box-sizing: border-box;
+  padding: 10px 5px;
+  border-right: 1px solid #ccc;
+  > div {
+  }
+}
+.room {
+  flex: 1;
+  --header-height: 60px;
+  .header {
+    line-height: var(--header-height);
+    color: #fff;
+    border-bottom: 1px solid #ccc;
+    background: linear-gradient(to right, #409eff, rgba(64, 158, 255, 0.5));
+    padding: 0 10px;
+  }
+  .body {
+    display: flex;
+    height: calc(100% - var(--header-height));
+    .member-content {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      height: 100%;
+      .view {
+        background-color: #f1f1f1;
+        // border-bottom: 1px solid #ccc;
+        // flex: 1;
+        height: 100%;
+        padding: 20px;
+        overflow: auto;
+        .talk {
+          margin-bottom: 20px;
+          .name {
+            margin-bottom: 4px;
+          }
+          .bubble {
+            background-color: #fff;
+            padding: 4px 8px;
+            max-width: 50%;
+            width: fit-content;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+            white-space: pre-wrap;
+          }
+					.image-message {
+						max-width: 80%;
+						border-radius: 5px;
+						box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+					}
+          .time {
+            color: #ccc;
+          }
+        }
+        .talk-me {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-end;
+          .bubble {
+            background-color: #409eff;
+            color: #fff;
+          }
+        }
+        .system-message {
+          text-align: center;
+          color: #8a8a8ac7;
+        }
+      }
+      .input {
+        position: relative;
+        height: 250px;
+				.tools {
+					position: absolute;
+					left: 10px;
+					top: 12px;
+					// background: #fff;
+					height: 30px;
+				}
+        // padding: 20px;
+        .message {
+					--el-input-focus-border-color: #c0c4cc;
+					:deep(.el-textarea__inner) {
+						padding-top: 62px;
+						border: none;
+						
+					}
+          width: 100%;
+					
+          // height: 100%;
+        }
+        .btn-box {
+          position: absolute;
+          right: 10px;
+          bottom: 10px;
+          margin-top: 5px;
+          text-align: right;
+          .tag {
+            color: #9a9a9a;
+            margin-right: 10px;
+          }
+        }
+      }
+    }
+    .member-list {
+      box-sizing: border-box;
+      width: 200px;
+      border-left: 1px solid #ccc;
+      padding: 10px;
+      > p {
+        border-bottom: 1px solid #ccc;
+        padding: 10px 0;
+      }
+      > div {
+        margin-top: 5px;
+        // line-height: 16px;
+      }
+    }
+  }
+}

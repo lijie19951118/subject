@@ -1,0 +1,1 @@
+import{_ as t}from"./index-ccf67d04.js";import{l as e,m as c}from"./myVue-ccd9a49f.js";const o={},r={class:""};function n(s,_){return e(),c("div",r," 1,对象，调用该对象的toString(), 返回'[object Object]' 2,数组 空数组 String([]) // '' 非空数组 String([1,2,3]) // 1,2,3 3,其他返回自身 ")}const f=t(o,[["render",n]]);export{f as default};
