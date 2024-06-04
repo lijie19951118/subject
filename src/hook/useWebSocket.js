@@ -1,7 +1,6 @@
-function useWebSocket(messageHandler) {
+function useWebSocket(messageHandler, openHandler) {
 	const url = import.meta.env.VITE_WEBSOCKET_SERVER;
 	const ws = new WebSocket(url);
-	const userName = localStorage.getItem("userName");
 
 	const init = () => {
 		bindEvent();
@@ -12,17 +11,6 @@ function useWebSocket(messageHandler) {
 		ws.addEventListener('close', closeHandler);
 		ws.addEventListener('drror', errorHandler);
 		ws.addEventListener('message', messageHandler);
-	}
-
-	function openHandler() {
-		console.log('————————连接成功——————')
-		const data = {
-			time: new Date().getTime(),
-			userName,
-			message: `${userName}进入聊天室`,
-			mode: "INTO",
-		};
-		ws.send(JSON.stringify(data));
 	}
 
 	function closeHandler() {

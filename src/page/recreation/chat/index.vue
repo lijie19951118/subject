@@ -84,8 +84,16 @@ import { Avatar, Picture } from "@element-plus/icons-vue";
 import dayjs from "dayjs";
 import { useWebSocket } from "@/hook";
 
-const ws = useWebSocket(onMessage);
-const userName = localStorage.getItem("userName");
+let userName = localStorage.getItem("userName");
+let ws;
+if (userName) {
+  ws = useWebSocket(onMessage, openHandler);
+} else {
+  setTimeout(() => {
+    userName = localStorage.getItem("userName");
+    ws = useWebSocket(onMessage, openHandler);
+  }, 1000);
+}
 
 const viewRef = ref(null);
 const imageRef = ref(null);
@@ -100,6 +108,16 @@ const megList = ref([
   // },
 ]);
 
+function openHandler() {
+  console.log("————————连接成功——————");
+  const data = {
+    time: new Date().getTime(),
+    userName,
+    message: `${userName}进入聊天室`,
+    mode: "INTO",
+  };
+  ws.send(JSON.stringify(data));
+}
 async function onMessage(data) {
   data = JSON.parse(data.data);
   if (data.mode === "ROOM") {
