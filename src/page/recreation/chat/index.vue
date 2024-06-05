@@ -6,7 +6,7 @@
     </div> -->
 
     <div class="room">
-      <div class="header">多人聊天室</div>
+      <div class="header">多人聊天室（聊天记录保留1小时）</div>
       <div class="body">
         <div class="member-content">
           <div class="view" ref="viewRef">
@@ -26,7 +26,7 @@
                   alt=""
                 />
                 <div class="time">
-                  {{ dayjs(parseInt(item.time)).format("YYYY-MM-DD HH:mm:ss") }}
+                  {{ dayjs(item.time).format("YYYY-MM-DD HH:mm:ss") }}
                 </div>
               </div>
               <div
@@ -83,17 +83,10 @@ import { ref, onMounted, onBeforeUnmount, nextTick } from "vue";
 import { Avatar, Picture } from "@element-plus/icons-vue";
 import dayjs from "dayjs";
 import { useWebSocket } from "@/hook";
+import request from "@/utils/request";
 
-let userName = localStorage.getItem("userName");
+let userName;
 let ws;
-if (userName) {
-  ws = useWebSocket(onMessage, openHandler);
-} else {
-  setTimeout(() => {
-    userName = localStorage.getItem("userName");
-    ws = useWebSocket(onMessage, openHandler);
-  }, 1000);
-}
 
 const viewRef = ref(null);
 const imageRef = ref(null);
@@ -175,6 +168,24 @@ function changeImage(file) {
   });
   reader.readAsDataURL(file);
 }
+
+async function getMessageList() {
+  const res = await request({
+    url: "/chat/list",
+    method: "get",
+    data: {},
+  });
+  if (res.code !== 0) {
+    return;
+  }
+  megList.value = res.result;
+
+  userName = localStorage.getItem("userName");
+  ws = useWebSocket(onMessage, openHandler);
+}
+
+// 获取数据
+getMessageList();
 
 onMounted(() => {});
 onBeforeUnmount(() => {
