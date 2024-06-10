@@ -4,15 +4,16 @@ const vEnterIn = directives;
 </script>
 
 <template>
-  <div>请下滑...</div>
+  <!-- <div>请下滑...</div> -->
   <div class="smooth">
-    <div v-enter-in class="item">1</div>
-    <div v-enter-in class="item">2</div>
-    <div v-enter-in class="item">3</div>
-    <div v-enter-in class="item">4</div>
-    <div v-enter-in class="item">5</div>
-    <div v-enter-in class="item">6</div>
-    <div v-enter-in class="item">7</div>
+    <img v-enter-in class="item" src="@/assets/image/smooth-1.jpg" />
+    <img v-enter-in class="item" src="@/assets/image/smooth-2.jpg" />
+    <img v-enter-in class="item" src="@/assets/image/smooth-3.jpg" />
+    <img v-enter-in class="item" src="@/assets/image/smooth-4.jpg" />
+    <img v-enter-in class="item" src="@/assets/image/smooth-1.jpg" />
+    <img v-enter-in class="item" src="@/assets/image/smooth-2.jpg" />
+    <img v-enter-in class="item" src="@/assets/image/smooth-3.jpg" />
+    <img v-enter-in class="item" src="@/assets/image/smooth-4.jpg" />
   </div>
   <div>footer</div>
 </template>
@@ -20,8 +21,9 @@ const vEnterIn = directives;
 <style scoped lang="scss">
 .smooth {
   .item {
-    width: 50%;
-    height: 400px;
+    display: block;
+    width: 800px;
+    height: 500px;
     border-radius: 10px;
     border: 1px solid #ccc;
     margin: 0 auto 30px;

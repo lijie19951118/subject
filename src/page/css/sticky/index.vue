@@ -18,7 +18,7 @@ const imgList = [
 -->
 <template>
   <div class="main">
-    <h1>滚动条向下滑👇</h1>
+    <!-- <h1>滚动条向下滑👇</h1> -->
     <div class="box2">
       <template v-for="img in imgList" :key="img">
         <img v-if="img" :src="img" alt="" />
@@ -26,7 +26,7 @@ const imgList = [
       </template>
     </div>
 
-    <div class="box1">
+    <!-- <div class="box1">
       <div class="line">
         <div class="header">A</div>
         <div>aaa</div>
@@ -67,7 +67,7 @@ const imgList = [
         <div>ddddddda</div>
         <div>ddddddda</div>
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 

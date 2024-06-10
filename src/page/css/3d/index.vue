@@ -2,7 +2,7 @@
 
 <template>
   <div class="main">
-    <h1>鼠标悬浮👇</h1>
+    <!-- <h1>鼠标悬浮👇</h1> -->
     <div class="item">
       <div class="item1"></div>
       <img class="img1" src="@/assets/image/4.png" alt="" />
@@ -16,8 +16,8 @@
   padding: 50px;
 }
 .item {
-  width: 300px;
-  height: 400px;
+  width: 600px;
+  height: 800px;
   position: relative;
   margin: 50px;
   .item1 {

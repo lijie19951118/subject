@@ -15,20 +15,20 @@ const list = [
 		icon: VideoPlay
 	},
 	{
-		title: '其他案例',
+		title: '其他',
 		path: '/example',
 		children: [
 			{
-				title: '粘性布局',
+				title: 'sticky',
 				path: '/css/sticky'
+			},
+			{
+				title: 'smooth',
+				path: '/vue/smoothEntry'
 			},
 			{
 				title: '3D',
 				path: '/css/3d'
-			},
-			{
-				title: '平滑进入',
-				path: '/vue/smoothEntry'
 			},
 		],
 		icon: House
