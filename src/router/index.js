@@ -20,6 +20,8 @@ export const routes = Object.entries(pages).map(([path, meta]) => {
 	}
 });
 
+routes.push({ path: '/:pathMatch(.*)*', redirect: '/recreation/chat', },)
+
 // console.log(pages)
 // console.log(indexPages)
 // console.log(routes)
