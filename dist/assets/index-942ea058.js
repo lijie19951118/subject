@@ -1,1 +1,0 @@
-import{_ as e}from"./index-464d84b2.js";import{e as _,f as c}from"./vendor-e9a737b2.js";const t={},o={class:"ball"};function s(n,a){return _(),c("div",o)}const f=e(t,[["render",s],["__scopeId","data-v-452f188c"]]);export{f as default};

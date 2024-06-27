@@ -1,1 +1,0 @@
-import{_ as o}from"./index-464d84b2.js";import{e as t,f as _,O as c,P as d,j as s}from"./vendor-e9a737b2.js";const a={},n=e=>(c("data-v-567795d2"),e=e(),d(),e),i={class:"min"},p=n(()=>s("div",{class:"box"},[s("div",{class:"item"},"123")],-1)),r=[p];function l(e,f){return t(),_("div",i,r)}const x=o(a,[["render",l],["__scopeId","data-v-567795d2"]]);export{x as default};

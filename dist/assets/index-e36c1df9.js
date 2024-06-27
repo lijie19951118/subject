@@ -1,1 +1,0 @@
-import{_ as t}from"./index-464d84b2.js";import{e,f as c}from"./vendor-e9a737b2.js";const o={},r={class:""};function n(s,_){return e(),c("div",r," 1,对象，调用该对象的toString(), 返回'[object Object]' 2,数组 空数组 String([]) // '' 非空数组 String([1,2,3]) // 1,2,3 3,其他返回自身 ")}const f=t(o,[["render",n]]);export{f as default};

@@ -1,5 +1,5 @@
 import { routes } from './index.js';
-import { House, VideoPlay, Link, View, DataAnalysis, Monitor } from "@element-plus/icons-vue";
+import { House, VideoPlay, DataLine, Link, View, DataAnalysis, Monitor } from "@element-plus/icons-vue";
 
 // console.log(routes)
 const list = [
@@ -15,28 +15,35 @@ const list = [
 		icon: VideoPlay
 	},
 	{
-		title: '其他',
-		path: '/example',
+		title: '数据可视化',
+		path: '/echarts',
 		children: [
 			{
-				title: 'sticky',
-				path: '/css/sticky'
-			},
-			{
-				title: 'smooth',
-				path: '/vue/smoothEntry'
-			},
-			{
-				title: '3D',
-				path: '/css/3d'
-			},
-			{
-				title: '图表',
+				title: '多表联动',
 				path: '/echarts/main'
 			},
 		],
-		icon: House
+		icon: DataLine
 	},
+	// {
+	// 	title: '其他',
+	// 	path: '/example',
+	// 	children: [
+	// 		{
+	// 			title: 'sticky',
+	// 			path: '/css/sticky'
+	// 		},
+	// 		{
+	// 			title: 'smooth',
+	// 			path: '/vue/smoothEntry'
+	// 		},
+	// 		{
+	// 			title: '3D',
+	// 			path: '/css/3d'
+	// 		}
+	// 	],
+	// 	icon: House
+	// },
 	// {
 	// 	title: '动画',
 	// 	path: '/animation',

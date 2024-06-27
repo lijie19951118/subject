@@ -1,1 +1,0 @@
-import{Z as a,e,f as s,k as r,I as _,F as l,j as u}from"./vendor-e9a737b2.js";const d="hello world",p={class:""},t={__name:"a",setup(o){return console.log(d,9999),a(),(n,c)=>(e(),s("div",p,"aaaaaaaaaaaaaaaaa"))}};console.log(t);const i=u("div",{class:""},"11111111111",-1),f={__name:"index",setup(o){return a(),(n,c)=>(e(),s(l,null,[i,r(_(t))],64))}};export{f as default};
