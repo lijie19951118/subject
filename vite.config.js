@@ -32,11 +32,16 @@ export default defineConfig({
 		rollupOptions: {
 			// https://rollupjs.org/guide/en/#outputmanualchunks
 			output: {
-				manualChunks: {
-					'myVue': [
-						'./src/page/vue/chatGPT/index.vue',
-					],
-				},
+				// manualChunks: {
+				// 	'myVue': [
+				// 		'./src/page/vue/chatGPT/index.vue',
+				// 	],
+				// },
+				manualChunks: (id) => {
+					if (id.includes('node_modules')) {
+						return 'vendor'
+					}
+				}
 			},
 		},
 	},

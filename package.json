@@ -10,6 +10,7 @@
   "dependencies": {
     "@styils/vue": "^1.1.6",
     "axios": "^1.6.8",
+    "echarts": "^5.5.0",
     "element-plus": "^2.3.7",
     "lijie": "file:./lijie",
     "openai": "^4.0.0",

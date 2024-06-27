@@ -1,4 +1,4 @@
-import {ref, onUnmounted} from 'vue';
+import { ref, onUnmounted } from 'vue';
 
 /**
  * 设置当前帧是否显示
@@ -11,7 +11,7 @@ export function useDelay(max = 100) {
 	function requset() {
 		refId = requestAnimationFrame(() => {
 			console.log(111);
-			frame.value ++;
+			frame.value++;
 			if (frame.value > max) {
 				return;
 			}

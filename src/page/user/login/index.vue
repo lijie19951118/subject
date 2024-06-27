@@ -125,8 +125,8 @@ const codeImg = ref("");
 const loginType = ref("login");
 const ruleFormRef = ref();
 const ruleForm = reactive({
-  username: "",
-  password: "",
+  username: "test",
+  password: "1111",
   code: "",
 });
 

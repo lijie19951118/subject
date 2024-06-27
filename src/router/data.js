@@ -30,6 +30,10 @@ const list = [
 				title: '3D',
 				path: '/css/3d'
 			},
+			{
+				title: '图表',
+				path: '/echarts/main'
+			},
 		],
 		icon: House
 	},
