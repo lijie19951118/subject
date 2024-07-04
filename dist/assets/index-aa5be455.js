@@ -1,1 +1,0 @@
-import{f as t,g as o,t as s}from"./vendor-52091f21.js";const n={class:"",style:{"white-space":"pre"}},i={__name:"index",setup(c){function e(){this&&Object.getPrototypeOf(this)===e.prototype?console.log("new调用"):console.log("普通调用")}return new e,console.log("====================="),e(),(l,r)=>(t(),o("div",n,s(e)))}};export{i as default};

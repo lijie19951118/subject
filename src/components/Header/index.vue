@@ -163,6 +163,7 @@ getUser();
   height: 50px;
   border-bottom: 1px solid #ccc;
   z-index: 1;
+  box-shadow: 3px 0 3px 3px #ccc;
   .title {
     margin: 0 5px;
   }

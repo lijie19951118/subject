@@ -9,7 +9,7 @@ function useWebSocket(messageHandler, openHandler) {
 	function bindEvent() {
 		ws.addEventListener('open', openHandler);
 		ws.addEventListener('close', closeHandler);
-		ws.addEventListener('drror', errorHandler);
+		ws.addEventListener('error', errorHandler);
 		ws.addEventListener('message', messageHandler);
 	}
 

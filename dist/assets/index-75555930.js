@@ -1,1 +1,0 @@
-import{_ as s}from"./index-66febafa.js";import{r as _,f as t,g as o,O as a,P as c,j as d}from"./vendor-52091f21.js";const n=e=>(a("data-v-e714f72d"),e=e(),c(),e),p={class:"main"},i=n(()=>d("div",{class:"item"},"球",-1)),r=[i],f={__name:"index",setup(e){return _(0),(m,l)=>(t(),o("div",p,r))}},h=s(f,[["__scopeId","data-v-e714f72d"]]);export{h as default};

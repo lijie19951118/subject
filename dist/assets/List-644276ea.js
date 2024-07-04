@@ -1,0 +1,1 @@
+import{Y as s}from"./vendor-d9749800.js";const i=s('<div class="">异步加载组件</div><div class="">异步加载组件</div><div class="">异步加载组件</div><div class="">异步加载组件</div><div class="">异步加载组件</div><div class="">异步加载组件</div><div class="">异步加载组件</div>',7),v={__name:"List",setup(d){return(a,c)=>i}};export{v as default};

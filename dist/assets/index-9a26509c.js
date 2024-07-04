@@ -1,1 +1,0 @@
-import{_ as n}from"./index-66febafa.js";import{f as e,g as s,F as _,G as a,j as c}from"./vendor-52091f21.js";const r={},o={class:"main"};function d(i,l){return e(),s("div",o,[(e(),s(_,null,a(5e3,(m,t)=>c("span",{key:t},"哈")),64))])}const u=n(r,[["render",d],["__scopeId","data-v-695c666d"]]);export{u as default};

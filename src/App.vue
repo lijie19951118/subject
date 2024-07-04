@@ -76,6 +76,7 @@ watchEffect(() => {
   height: 100vh;
   width: 180px;
   overflow: auto;
+  /* box-shadow: 0 0 3px 3px #ccc; */
 }
 .app-main .el-menu-vertical .login {
   font-size: 18px;
